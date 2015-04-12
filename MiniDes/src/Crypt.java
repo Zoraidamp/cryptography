@@ -125,12 +125,5 @@ public class Crypt {
 	    zapis.close();
 	}
 	
-	public static void main(String[] args) throws FileNotFoundException {
-		// TODO Auto-generated method stub
-		Crypt cr = new Crypt();
-		cr.readFiles();
-		cr.crypt();
-		//System.out.println(cr.keyNext(7));
-	}
 
 }

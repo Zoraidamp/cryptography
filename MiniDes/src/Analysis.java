@@ -133,17 +133,9 @@ public class Analysis {
 		String finalW2 = wynik2.substring(6) + wynik2.substring(0, 6);
 		
 		FileWriter zapis3 = new FileWriter("analysis.txt", true);
-	    zapis3.write(finalW1+"\t"+finalW2+"\t"+xorString(finalW1, finalW2)+"\n");
+	    zapis3.write(finalW1+"\t"+finalW2+"\t"+xorString(finalW1, finalW2));
 	    zapis3.close();
 		//System.out.println("finalW: "+finalW1);
 	}
 	
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		Analysis cr = new Analysis();
-		cr.readFiles();
-		cr.crypt();
-		//System.out.println(cr.keyNext(7));
-	}
-
 }

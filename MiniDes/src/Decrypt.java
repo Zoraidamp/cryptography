@@ -125,11 +125,4 @@ public class Decrypt {
 	    zapis.close();
 	}
 	
-	public static void main(String[] args) throws FileNotFoundException {
-		// TODO Auto-generated method stub
-		Decrypt cr = new Decrypt();
-		cr.readFiles();
-		cr.decrypt();
-	}
-
 }
