@@ -106,7 +106,7 @@ public class Crypt {
 		pomr = xorString(lookAtS( pomr ), oldL);
 		String r = pomr; 
 		wynik = l + r;
-		System.out.println(wynik+"("+keyR+")");
+		//System.out.println(wynik+"("+keyR+")");
 		return wynik;
 	}
 	
@@ -118,7 +118,7 @@ public class Crypt {
 			wynik = round(wynik, roundKey);
 		}
 		String finalW = wynik.substring(6) + wynik.substring(0, 6);
-		System.out.println("finalW: "+finalW);
+		//System.out.println("finalW: "+finalW);
 		
 		PrintWriter zapis = new PrintWriter("crypto.txt");
 	    zapis.println(finalW);

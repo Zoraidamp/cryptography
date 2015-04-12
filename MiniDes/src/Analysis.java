@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -108,25 +110,35 @@ public class Analysis {
 		pomr = xorString(lookAtS( pomr ), oldL);
 		String r = pomr; 
 		wynik = l + r;
-		//System.out.println(keyR);
+		//System.out.println(wynik+"("+keyR+")");
 		return wynik;
 	}
 	
-	public void crypt() throws FileNotFoundException{
-		String wynik1 = plain1, wynik2=plain2, roundKey;
+	public void crypt() throws IOException{
+		String wynik1 = plain1, wynik2 = plain2, roundKey;
+		PrintWriter zapis = new PrintWriter("analysis.txt");
+	    zapis.println(wynik1+"\t"+wynik2+"\t"+xorString(wynik1, wynik2));
+	    zapis.close();
 
 		for(int i=0; i<8; i++){
 			roundKey = keyNext(i);
 			wynik1 = round(wynik1, roundKey);
 			wynik2 = round(wynik2, roundKey);
-			System.out.println(wynik1+"/t"+wynik2+"/t"+xorString(wynik1, wynik2));
+			
+		    FileWriter zapis2 = new FileWriter("analysis.txt", true);
+		    if (i<7) zapis2.write(wynik1+"\t"+wynik2+"\t"+xorString(wynik1, wynik2)+"\n");
+		    zapis2.close();
 		}
 		String finalW1 = wynik1.substring(6) + wynik1.substring(0, 6);
 		String finalW2 = wynik2.substring(6) + wynik2.substring(0, 6);
-		System.out.println(finalW2);
+		
+		FileWriter zapis3 = new FileWriter("analysis.txt", true);
+	    zapis3.write(finalW1+"\t"+finalW2+"\t"+xorString(finalW1, finalW2)+"\n");
+	    zapis3.close();
+		//System.out.println("finalW: "+finalW1);
 	}
 	
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Analysis cr = new Analysis();
 		cr.readFiles();
