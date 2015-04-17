@@ -1,0 +1,4 @@
+Cezar zrobiony
+Aficzny zrobiony
+W trakcie odpalania opcje muszą byc w dobrej kolejnosci (nie wazna wielkosc liter)
+Szyfruje duze i male litery, inne znaki przepisuje bez zmian
