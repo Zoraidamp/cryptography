@@ -1,0 +1,3 @@
+imie: Magdalena
+nazwisko: Plotka
+indeks: 215538
