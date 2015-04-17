@@ -1,0 +1,7 @@
+Szyfr Vigenere'a
+
+Nadal zakładamy, że litery zakodowane są za pomocą liczb. Szyfr Vigenere'a jest właściwie zestawem szyfrów Cezara. Mianowicie, kluczem jest układ liczb k=<k0,k1,...,k(n−1)> zapamiętywany raczej w postaci liter. Kolejne litery tekstu jawnego szyfrowane (i odszyfrowywane) są przy pomocy szyfru Cezara z użyciem kolejnych liczb klucza. Dokładniej, jeśli x jest kolejną m-tą literą tekstu jawnego, a j=m mod n jest resztą z dzielenia m przez długość klucza n, to E(k,x)=x+kj, D(k,y)=y-kj.
+
+Kryptoanaliza jest trywialna w przypadku znajomości długości klucza, tzn. n, oraz znajomości co najmniej n par tekstu jawnego i zaszyfrowanego. Jednakże w przypadku, gdy znany jest tylko szyfrogram, przeszukiwanie wyczerpujące traci sens, przestrzeń kluczy ma rozmiar 26n i jest za duża nawet dla niewielkich wartości n.  Stosowana jest w tym przypadku analiza częstotliwości.
+
+Niech W będzie wektorem częstotliwości występowania poszczególnych liter w języku naturalnym. Dla języka angielskiego są to następujące liczby (w promilach)

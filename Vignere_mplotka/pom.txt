@@ -1,0 +1,2 @@
+Zrobione szyfrowanie i odszywrowanie
+Przy wyborze opcji nie jest ważna wielkość litery
