@@ -30,26 +30,36 @@ public BigInteger number;
 	}
 	
 	public boolean testRabin(int howMany){
+		if (number.mod(BigInteger.valueOf(2)).compareTo(BigInteger.ZERO)==0) return false;
 		BigInteger[] results = count();
-		BigInteger a = BigInteger.valueOf(2);
-		int i=0;
-		BigInteger x = chooseA(a);
-		while(i<howMany && (x.compareTo(BigInteger.ONE)==0 || x.compareTo(number.subtract(BigInteger.ONE))==0) ){
-			a.add(BigInteger.ONE);
-			x = chooseA(a);
+		BigInteger a = BigInteger.ONE;
+		BigInteger x = BigInteger.ONE;
+		for(int i=0; i<howMany; i++){
+			while(x.compareTo(BigInteger.ONE)==0 || x.compareTo(number.subtract(BigInteger.ONE))==0){
+				System.out.println("******x: "+x+" number: "+number+" i: "+i);
+				a = a.add(BigInteger.ONE);
+				x = chooseA(a);
+				System.out.println("______x: "+x+" a: "+a);
+			}
+			BigInteger j=BigInteger.ONE;
+			System.out.println("<<<<j: "+j+" s: "+results[0]);
+			while (j.compareTo(results[0])==-1 && x.compareTo(number.subtract(BigInteger.ONE))!=0 ){
+				System.out.println("j: "+j+" s: "+results[0]);
+				x = x.modPow(BigInteger.valueOf(2), number);
+				if (x.compareTo(BigInteger.ONE )==0) return false;
+				j=j.add(BigInteger.ONE);
+				System.out.println("(@)x: "+x+" s: "+results[0]);
+			}
+			if (x.compareTo(number.subtract(BigInteger.ONE))!=0) return false;
 		}
-		BigInteger j=BigInteger.ONE;
-		while (j.compareTo(results[0])==-1 && x.compareTo(number.subtract(BigInteger.ONE))!=0 ){
-			x = x.modPow(BigInteger.valueOf(2), number);
-			if (x.comp) return false;
-		}
+		return true;
 	}
 	
 	public static void main(String[] args) {
-		BigInteger pom = BigInteger.valueOf(9);
+		BigInteger pom = BigInteger.valueOf(11);
 		MillerRabin rabin = new MillerRabin(pom);
-		//System.out.println(fermat.test());
-		rabin.count();		
+		System.out.println("***"+rabin.testRabin(10));
+		//rabin.count();		
 	}
 
 }
